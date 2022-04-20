@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:studyapp/core/constants/color_const.dart';
 import 'package:studyapp/core/constants/size_const.dart';
 import 'package:studyapp/core/constants/text_const.dart';
 import 'package:on_click/on_click.dart';
+import 'package:studyapp/provider/categories_check_provider.dart';
+import 'package:studyapp/provider/checkbox_provider.dart';
 
 class InterestsPage extends StatefulWidget {
   InterestsPage({Key? key}) : super(key: key);
@@ -12,7 +15,7 @@ class InterestsPage extends StatefulWidget {
 }
 
 class _InterestsPageState extends State<InterestsPage> {
-  bool math=false;
+  bool math = false;
 
   bool economy = false;
 
@@ -54,58 +57,59 @@ class _InterestsPageState extends State<InterestsPage> {
         children: [
           Image.asset('assets/images/title.png'),
           Card(
-            margin: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 10.0),
+            margin:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
             child: ListTile(
               trailing: Checkbox(
-                shape: const CircleBorder(),
-                value: math,
-                onChanged: (v) {
-                  v == math;
+                  shape: const CircleBorder(),
+                  value: math,
+                  onChanged: (v) {
+                   math=v!;
                   setState(() {
                     
                   });
-                },
-              ),
+                  }),
               leading: Image.asset('assets/images/math.png'),
               title: const Text('Mathematics'),
               subtitle: const Text(
                 'Geomatry,Algorhitms',
-                style: const TextStyle(color: Colors.grey),
+                style: TextStyle(color: Colors.grey),
               ),
             ),
           ),
           Card(
-            margin: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 10.0),
+            margin:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
             child: ListTile(
               trailing: Checkbox(
                 shape: const CircleBorder(),
-                value: math,
+                value: economy,
                 onChanged: (v) {
-                  v == economy;
-                  setState(() {
-                    
-                  });
+                  setState(
+                    () {
+                      economy = v!;
+                    },
+                  );
                 },
               ),
               leading: Image.asset('assets/images/economy.png'),
               title: const Text('Economy'),
               subtitle: const Text(
                 'Stock,Property,News',
-                style: const TextStyle(color: Colors.grey),
+                style: TextStyle(color: Colors.grey),
               ),
             ),
           ),
           Card(
-            margin: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 10.0),
+            margin:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
             child: ListTile(
               trailing: Checkbox(
                 shape: const CircleBorder(),
-                value: math,
+                value: english,
                 onChanged: (v) {
-                  v == english;
-                  setState(() {
-                    
-                  });
+                  english=v!;
+                  setState(() {});
                 },
               ),
               leading: Image.asset('assets/images/english.png'),
@@ -117,16 +121,15 @@ class _InterestsPageState extends State<InterestsPage> {
             ),
           ),
           Card(
-            margin: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 10.0),
+            margin:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
             child: ListTile(
               trailing: Checkbox(
                 shape: const CircleBorder(),
-                value: math,
+                value: bilogy,
                 onChanged: (v) {
-                  v == bilogy;
-                  setState(() {
-                    
-                  });
+                  bilogy=v!;
+                  setState(() {});
                 },
               ),
               leading: Image.asset('assets/images/biology.png'),
@@ -138,16 +141,15 @@ class _InterestsPageState extends State<InterestsPage> {
             ),
           ),
           Card(
-            margin: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 10.0),
+            margin:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
             child: ListTile(
               trailing: Checkbox(
                 shape: const CircleBorder(),
-                value: math,
+                value: geography,
                 onChanged: (v) {
-                  v == geography;
-                  setState(() {
-                    
-                  });
+                  geography=v!;
+                  setState(() {});
                 },
               ),
               leading: Image.asset('assets/images/geography.png'),
@@ -158,18 +160,18 @@ class _InterestsPageState extends State<InterestsPage> {
               ),
             ),
           ),
-
           Padding(
-            padding: const EdgeInsets.only(left: 10.0,right: 10.0,top: 40.0),
+            padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 40.0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                fixedSize: Size(MediaQuery.of(context).size.height*0.427, MediaQuery.of(context).size.height*0.07)
-              ),
-              onPressed: (){
+                  fixedSize: Size(MediaQuery.of(context).size.height * 0.427,
+                      MediaQuery.of(context).size.height * 0.07)),
+              onPressed: () {
                 Navigator.pushNamed(context, '/signin');
-              }, child: const Text('Continue'),),
+              },
+              child: const Text('Continue'),
+            ),
           ),
-          
         ],
       ),
     );

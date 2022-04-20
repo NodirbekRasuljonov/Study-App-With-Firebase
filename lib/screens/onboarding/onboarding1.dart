@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:studyapp/core/constants/color_const.dart';
 import 'package:studyapp/core/constants/text_const.dart';
+import 'package:studyapp/firebase/firebase_service.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    if (MyFirebaseService.auth!=null){
+      debugPrint('User Signed In');
+    } else {
+      debugPrint('User signed Out');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Container(

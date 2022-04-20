@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studyapp/screens/home/home_screen.dart';
+import 'package:studyapp/screens/home/subjects_page.dart';
 import 'package:studyapp/screens/onboarding/interests.dart';
 import 'package:studyapp/screens/onboarding/onboarding1.dart';
 import 'package:studyapp/screens/onboarding/onboarding2.dart';
@@ -33,6 +34,10 @@ class MyRoutes {
       case '/home':
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
+        );
+        case '/subjects':
+        return MaterialPageRoute(
+          builder: (context) => const SubjectsPage(),
         );
     }
   }

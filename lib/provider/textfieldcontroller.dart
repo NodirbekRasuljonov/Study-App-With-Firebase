@@ -9,15 +9,15 @@ class TextFieldController extends ChangeNotifier {
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController phonecontroller = TextEditingController();
 
-  TextEditingController signinemail=TextEditingController();
-  TextEditingController signinpassword=TextEditingController();
+  TextEditingController signinemail = TextEditingController();
+  TextEditingController signinpassword = TextEditingController();
 
   Future signUp({required BuildContext context}) async {
     try {
       await MyFirebaseService.auth.createUserWithEmailAndPassword(
           email: emailcontroller.text, password: passwordcontroller.text);
-          writeToDb();
-          clear();
+      writeToDb();
+      clear();
 
       Navigator.pushNamed(context, '/interest');
     } on FirebaseAuthException catch (e) {
@@ -28,10 +28,10 @@ class TextFieldController extends ChangeNotifier {
             context: context);
       } else if (e.code == 'email-already-in-use') {
         MyMessanger.showMyMessanger(
-            text: 'The account already exists for that email',
-            color: Colors.red,
-            context: context,
-            );
+          text: 'The account already exists for that email',
+          color: Colors.red,
+          context: context,
+        );
       }
     } catch (e) {
       MyMessanger.showMyMessanger(
@@ -39,18 +39,21 @@ class TextFieldController extends ChangeNotifier {
     }
   }
 
-  Future signIn(context)async{
+  Future signIn(context) async {
     try {
-      await MyFirebaseService.auth.signInWithEmailAndPassword(email: signinemail.text, password: signinpassword.text);
-Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+      await MyFirebaseService.auth.signInWithEmailAndPassword(
+          email: signinemail.text, password: signinpassword.text);
+      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
     } catch (e) {
       debugPrint('Error :&e');
     }
     notifyListeners();
   }
-  Future resetpassword()async{
+
+  Future resetpassword() async {
     try {
-      await MyFirebaseService.auth.sendPasswordResetEmail(email: signinemail.text);
+      await MyFirebaseService.auth
+          .sendPasswordResetEmail(email: signinemail.text);
     } catch (e) {
       debugPrint('Error:$e');
     }
@@ -72,12 +75,10 @@ Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
         .onError(
           (error, stackTrace) => debugPrint('Error:$error'),
         );
-        notifyListeners();
+    notifyListeners();
   }
 
-
-
-  clear(){
+  clear() {
     emailcontroller.clear();
     namecontroller.clear();
     passwordcontroller.clear();

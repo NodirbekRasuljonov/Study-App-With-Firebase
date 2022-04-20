@@ -7,8 +7,8 @@ class CategoriesCheckProvider extends ChangeNotifier {
   bool bilogy=false;
   bool geography=false;
 
-  change({required v,required bool value}){
-    v=value;
+  change({required bool value}){
+    value=!value;
     notifyListeners();
   }
   

@@ -12,4 +12,15 @@ class SubjectsImage extends ChangeNotifier {
     'assets/subjects/geography.png',
     'assets/subjects/chemical.png',
   ];
+  List nameofsubjects=[
+    'Maths',
+    'Physics',
+    'Arts',
+    'Biology',
+    'Technology',
+    'Economy',
+    'English',
+    'Geography',
+    'Chemical',
+  ];
 }

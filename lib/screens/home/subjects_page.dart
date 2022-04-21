@@ -13,24 +13,24 @@ class SubjectsPage extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: Colors.black,
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.height,
-        child: GridView.builder(
+      body:  GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             mainAxisExtent: 150.0,
-            crossAxisSpacing: 0.0,
+            crossAxisSpacing: 5.0,
             mainAxisSpacing: 5.0,
           ),
           itemBuilder: (context, index) {
-            return Image.asset(
-              context.watch<SubjectsImage>().images[index],
-            );
+            return  Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset(context.watch<SubjectsImage>().images[index]),
+                  Text(context.watch<SubjectsImage>().nameofsubjects[index]),
+                ],
+              );
+            
           },
           itemCount: 9,
-        ),
-      ),
-    );
+      ));
   }
 }

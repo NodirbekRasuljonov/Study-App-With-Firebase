@@ -12,6 +12,10 @@ class TextFieldController extends ChangeNotifier {
   TextEditingController signinemail = TextEditingController();
   TextEditingController signinpassword = TextEditingController();
 
+  // TextFieldController(){
+  //   readNameFromDb();
+  // }
+
   Future signUp({required BuildContext context}) async {
     try {
       await MyFirebaseService.auth.createUserWithEmailAndPassword(
@@ -78,10 +82,28 @@ class TextFieldController extends ChangeNotifier {
     notifyListeners();
   }
 
+
+  Future readNameFromDb()async{
+    try {
+      var name=await MyFirebaseService.firestore.doc('/users/PWpjWwGmZN3en198W6ti').get();
+      debugPrint(name['name'].toString(),);
+    } catch (e) {
+      debugPrint('Eroro:$e');
+    }
+  }
+
+  Future logOut(BuildContext context)async{
+    MyFirebaseService.auth.signOut();
+    Navigator.pushNamedAndRemoveUntil(context, '/splash', (route) => false);
+    notifyListeners();
+  }
+
   clear() {
     emailcontroller.clear();
     namecontroller.clear();
     passwordcontroller.clear();
     phonecontroller.clear();
   }
+
+  
 }

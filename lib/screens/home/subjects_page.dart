@@ -11,7 +11,7 @@ class SubjectsPage extends StatelessWidget {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0.0,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
       ),
       body:  GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

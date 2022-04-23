@@ -7,6 +7,7 @@ class ColorConst {
   static const Color onboardingtext=Color(0xff64748B);
   static const Color text2Color=Colors.black;
   static const Color signuptextfield=Color(0xffF1F5F9);
+  
 
 
   

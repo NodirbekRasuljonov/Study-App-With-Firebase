@@ -6,6 +6,7 @@ import 'package:studyapp/screens/onboarding/onboarding1.dart';
 import 'package:studyapp/screens/onboarding/onboarding2.dart';
 import 'package:studyapp/screens/onboarding/signin_page.dart';
 import 'package:studyapp/screens/onboarding/signup_page.dart';
+import 'package:studyapp/screens/settings_pages/main_settings_page.dart';
 
 class MyRoutes {
   Route? myRoute(RouteSettings settings) {
@@ -35,9 +36,13 @@ class MyRoutes {
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
         );
-        case '/subjects':
+      case '/subjects':
         return MaterialPageRoute(
           builder: (context) => const SubjectsPage(),
+        );
+      case '/settings':
+        return MaterialPageRoute(
+          builder: (context) =>  SettingsPage(),
         );
     }
   }

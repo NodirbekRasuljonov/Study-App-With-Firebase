@@ -8,7 +8,7 @@ class UpdateversionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: 'Update Version')
+      appBar: MyAppBar.myAppBar (title: 'Update Version')
     );
   }
 }

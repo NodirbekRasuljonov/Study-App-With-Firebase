@@ -14,7 +14,7 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar:MyAppBar(title: 'Account'),
+      appBar:MyAppBar.myAppBar(title: 'Account'),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,

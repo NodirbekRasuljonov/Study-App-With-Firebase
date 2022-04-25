@@ -10,7 +10,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: 'Settings'),
+      appBar: MyAppBar.myAppBar(title: 'Settings'),
       body: Column(
         children: [
           MyCard2.categories(

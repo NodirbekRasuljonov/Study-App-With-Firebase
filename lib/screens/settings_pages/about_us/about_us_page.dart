@@ -8,7 +8,7 @@ class AboutUsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:MyAppBar(title: 'About Us')
+      appBar:MyAppBar.myAppBar(title: 'About Us')
     );
   }
 }

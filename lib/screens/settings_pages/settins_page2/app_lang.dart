@@ -8,7 +8,7 @@ class AppLangPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: 'App Language'),
+      appBar: MyAppBar.myAppBar(title: 'App Language'),
       body: Column(
         children: [
           

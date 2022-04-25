@@ -8,7 +8,7 @@ class TermsConditionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:MyAppBar(title: 'Terms and Conditions')
+      appBar:MyAppBar.myAppBar(title: 'Terms and Conditions')
       
     );
   }

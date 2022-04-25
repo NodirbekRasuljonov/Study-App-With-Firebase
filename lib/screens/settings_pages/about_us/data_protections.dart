@@ -8,7 +8,7 @@ class DataProtectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: 'Data Protection')
+      appBar: MyAppBar.myAppBar(title: 'Data Protection')
     );
   }
 }

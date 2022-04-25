@@ -8,7 +8,7 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: 'About'),
+      appBar: MyAppBar.myAppBar(title: 'About'),
       body:Column(
         children: [
           MyCard2.categories(text: 'About Us', route: '/aboutus', context: context),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studyapp/core/constants/color_const.dart';
+import 'package:studyapp/widgets/my_appbar.dart';
 
 class AppLangPage extends StatelessWidget {
   const AppLangPage({Key? key}) : super(key: key);
@@ -7,14 +8,7 @@ class AppLangPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: Text('App Language'),
-        centerTitle: true,
-        titleTextStyle: TextStyle(color: ColorConst.text2Color),
-        iconTheme: IconThemeData(color: ColorConst.text2Color),
-      ),
+      appBar: MyAppBar(title: 'App Language'),
       body: Column(
         children: [
           

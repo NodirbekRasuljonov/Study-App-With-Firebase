@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:studyapp/core/constants/color_const.dart';
 import 'package:studyapp/core/constants/size_const.dart';
+import 'package:studyapp/widgets/my_appbar.dart';
 import 'package:studyapp/widgets/my_card.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -9,17 +10,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: Colors.black),
-        titleTextStyle: TextStyle(
-            color: ColorConst.text2Color,
-            fontSize: SizeConst.large,
-            fontWeight: FontWeight.w500),
-        title: const Text('Setting'),
-        centerTitle: true,
-      ),
+      appBar: MyAppBar(title: 'Settings'),
       body: Column(
         children: [
           MyCard2.categories(

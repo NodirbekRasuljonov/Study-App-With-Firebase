@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studyapp/widgets/my_appbar.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({ Key? key }) : super(key: key);
@@ -6,11 +7,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: MyAppBar(title: 'Profile')
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studyapp/widgets/my_appbar.dart';
 import 'package:studyapp/widgets/my_card.dart';
 
 class AboutPage extends StatelessWidget {
@@ -7,11 +8,7 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: MyAppBar(title: 'About'),
       body:Column(
         children: [
           MyCard2.categories(text: 'About Us', route: '/aboutus', context: context),

@@ -4,6 +4,7 @@ import 'package:studyapp/core/constants/color_const.dart';
 import 'package:studyapp/core/constants/radius_const.dart';
 import 'package:studyapp/core/constants/size_const.dart';
 import 'package:studyapp/provider/textfieldcontroller.dart';
+import 'package:studyapp/widgets/my_appbar.dart';
 import 'package:studyapp/widgets/textfield.dart';
 
 class AccountPage extends StatelessWidget {
@@ -13,16 +14,7 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: const Text(
-          'Account',
-          style: TextStyle(color: ColorConst.text2Color),
-        ),
-        centerTitle: true,
-      ),
+      appBar:MyAppBar(title: 'Account'),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,

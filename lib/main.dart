@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeComp.themeData,
       onGenerateRoute: _myroutes.myRoute,
       // initialRoute: context.watch<LoginProvider>().route,
-      initialRoute: '/settings',
+      initialRoute: '/mainsettings',
     );
   }
 }

@@ -12,6 +12,10 @@ class TextFieldController extends ChangeNotifier {
   TextEditingController signinemail = TextEditingController();
   TextEditingController signinpassword = TextEditingController();
 
+  TextEditingController oldpassword=TextEditingController();
+  TextEditingController newpassword=TextEditingController();
+  TextEditingController confirmpassword=TextEditingController();
+
   // TextFieldController(){
   //   readNameFromDb();
   // }
@@ -96,6 +100,16 @@ class TextFieldController extends ChangeNotifier {
     MyFirebaseService.auth.signOut();
     Navigator.pushNamedAndRemoveUntil(context, '/splash', (route) => false);
     notifyListeners();
+  }
+
+  Future changepassword({required BuildContext context,required String img})async{
+    print('sa');
+   await MyFirebaseService.auth.currentUser!.updatePassword(confirmpassword.text);
+   debugPrint("Succes");
+   ShowMyDialog.showMyDialog(context: context,img: img);
+   oldpassword.clear();
+   newpassword.clear();
+   confirmpassword.clear();
   }
 
   clear() {

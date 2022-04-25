@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studyapp/core/constants/color_const.dart';
@@ -7,16 +6,16 @@ import 'package:studyapp/core/constants/size_const.dart';
 import 'package:on_click/on_click.dart';
 import 'package:studyapp/firebase/firebase_service.dart';
 import 'package:studyapp/provider/textfieldcontroller.dart';
-import 'package:studyapp/service/firebase_service.dart';
+import 'package:studyapp/widgets/my_card.dart';
 
-class SettingsPage extends StatefulWidget {
-  SettingsPage({Key? key}) : super(key: key);
+class MainSettingsPage extends StatefulWidget {
+  MainSettingsPage({Key? key}) : super(key: key);
 
   @override
-  State<SettingsPage> createState() => _SettingsPageState();
+  State<MainSettingsPage> createState() => _MainSettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _MainSettingsPageState extends State<MainSettingsPage> {
   @override
   void initState() {
     // TODO: implement initState
@@ -28,6 +27,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,
@@ -108,54 +108,57 @@ class _SettingsPageState extends State<SettingsPage> {
             Expanded(
               flex: 2,
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    categories(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  MyCard.categories(
+                    context: context,
                       iconData: const Icon(
                         Icons.person_outline_outlined,
                       ),
                       text: 'Profile',
-                      func: () {},
-                    ),
-                    categories(
+                      route: '/profile'),
+                  MyCard.categories(
+                    context: context,
                       iconData: const Icon(Icons.check),
                       text: 'Account',
-                      func: () {},
-                    ),
-                    categories(
+                      route: '/account'),
+                  MyCard.categories(
+                    context: context,
                       iconData: const Icon(Icons.settings),
                       text: 'Settings',
-                      func: () {},
-                    ),
-                    categories(
+                      route: '/settings'),
+                  MyCard.categories(
+                    context: context,
                       iconData: const Icon(Icons.warning),
                       text: 'About',
-                      func: () {},
+                      route: '/about'),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.11,
+                    width: MediaQuery.of(context).size.height * 0.46,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset('assets/images/headphone.png'),
+                        Text(
+                          'How can we help you',
+                          style: TextStyle(
+                            fontSize: SizeConst.large,
+                            color: ColorConst.textColor,
+                          ),
+                        )
+                      ],
                     ),
-                    Container(
-                      height: MediaQuery.of(context).size.height*0.13,
-                      width: MediaQuery.of(context).size.height*0.46,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [Image.asset('assets/images/headphone.png'),
-                        Text('How can we help you',style: TextStyle(fontSize: SizeConst.large,color: ColorConst.textColor),)
-                        ],
-                      ),
-                      
-                      decoration: BoxDecoration(
-                        color: Color(0xff52b6df),
-                        borderRadius: BorderRadius.circular(RadiusConst.medium),),
-                    )
-                    
-                  ],
-                ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xff52b6df),
+                      borderRadius: BorderRadius.circular(RadiusConst.medium),
+                    ),
+                  )
+                ],
               ),
-            
-            Expanded(
+            ),
+            const Expanded(
               flex: 1,
-              child: Container(
-                color: Colors.orangeAccent,
-              ),
+              child: SizedBox(),
             ),
           ],
         ),
@@ -163,25 +166,5 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Card categories(
-      {required Icon iconData, required String text, required void func}) {
-    return Card(
-      margin: const EdgeInsets.all(5.0),
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: const Color(0xffdcf0f9),
-          child: iconData,
-        ),
-        title: Text(text),
-        trailing: IconButton(
-          onPressed: () {
-            func;
-          },
-          icon: const Icon(
-            Icons.chevron_right,
-          ),
-        ),
-      ),
-    );
+  
   }
-}
